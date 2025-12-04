@@ -180,3 +180,68 @@ h1 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.1; 
   .hero-cta .btn { width: 100%; margin-bottom: 10px; }
   .hero-photo-wrap, .hero-photo, .circle-photo, .circle-photo img { width: 100%; height: auto; max-width: 320px; }
 }
+
+.contact-cards {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.contact-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.contact-card p a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-card p a:hover {
+  text-decoration: underline;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-size: 14px;
+  resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 6px rgba(246, 178, 26, 0.4);
+}
+
+.contact-form button {
+  align-self: flex-start;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+}
