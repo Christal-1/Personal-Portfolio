@@ -1,10 +1,11 @@
+// Update footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* Radar Chart */
+/* ---------------- RADAR CHART ---------------- */
 const radarCanvas = document.getElementById('skillsRadar');
 if (radarCanvas) {
-    radarCanvas.width = 500;  // bigger width
-    radarCanvas.height = 500; // bigger height
+    radarCanvas.width = 500;
+    radarCanvas.height = 500;
 
     const ctx = radarCanvas.getContext('2d');
 
@@ -35,7 +36,7 @@ if (radarCanvas) {
         }
     });
 
-    /* Rotate animation */
+    // Rotate animation
     let angle = 0;
     function rotate() {
         angle += 0.1;
@@ -43,4 +44,33 @@ if (radarCanvas) {
         requestAnimationFrame(rotate);
     }
     rotate();
+}
+
+/* ---------------- CONTACT FORM ---------------- */
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(contactForm);
+
+    fetch(contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        formMessage.style.display = 'block';
+        contactForm.reset();
+        setTimeout(() => { formMessage.style.display = 'none'; }, 5000); // fade out after 5s
+      } else {
+        response.json().then(data => {
+          alert(data.error || "Oops! Something went wrong.");
+        });
+      }
+    }).catch(() => {
+      alert("Oops! Something went wrong.");
+    });
+  });
 }
