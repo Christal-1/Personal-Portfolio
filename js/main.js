@@ -47,7 +47,6 @@ if (radarCanvas) {
 }
 
 /* ---------------- CONTACT FORM (EmailJS) ---------------- */
-// Initialize EmailJS
 // Initialize EmailJS with your Public Key
 emailjs.init("rw9TwjCxJZIsPWS34");
 
