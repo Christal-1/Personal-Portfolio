@@ -1,9 +1,11 @@
-// ---------------- UPDATE FOOTER YEAR ----------------
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ---------------- RADAR CHART ---------------- */
+/* Radar Chart */
 const radarCanvas = document.getElementById('skillsRadar');
 if (radarCanvas) {
+    radarCanvas.width = 500;  // bigger width
+    radarCanvas.height = 500; // bigger height
+
     const ctx = radarCanvas.getContext('2d');
 
     const radarChart = new Chart(ctx, {
@@ -21,22 +23,28 @@ if (radarCanvas) {
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { display: false }
-            },
+            plugins: { legend: { display: false } },
             scales: {
                 r: {
                     angleLines: { color: '#ddd' },
                     grid: { color: '#ccc' },
-                    pointLabels: { color: '#21412c', font: { size: 14 } },
+                    pointLabels: { color: '#21412c' },
                     ticks: { display: false }
                 }
-            },
-            animation: { duration: 1500, easing: 'easeOutQuart' } // smooth animation
+            }
         }
     });
+
+    /* Rotate animation */
+    let angle = 0;
+    function rotate() {
+        angle += 0.1;
+        radarCanvas.style.transform = `rotate(${angle}deg)`;
+        requestAnimationFrame(rotate);
+    }
+    rotate();
 }
+
 
 /* ---------------- CONTACT FORM (EmailJS v4) ---------------- */
 emailjs.init("rw9TwjCxJZIsPWS34"); // your public key
