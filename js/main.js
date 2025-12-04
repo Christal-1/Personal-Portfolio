@@ -47,11 +47,11 @@ if (radarCanvas) {
 }
 
 /* ---------------- CONTACT FORM (EmailJS) ---------------- */
-// Initialize EmailJS with your Public Key
+// Initialize EmailJS
 emailjs.init("rw9TwjCxJZIsPWS34");
 
 const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
+const formPopup = document.getElementById('formPopup');
 
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
@@ -59,13 +59,31 @@ if (contactForm) {
 
     emailjs.sendForm('service_vxrxjiq', 'template_75cfmpa', this)
       .then(() => {
-        formMessage.style.display = 'block';
+        // Show popup
+        formPopup.style.display = 'block';
+        formPopup.style.opacity = 1;
+
+        // Confetti
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+
+        // Hide popup after 4s
+        setTimeout(() => {
+          formPopup.style.transition = "opacity 0.5s";
+          formPopup.style.opacity = 0;
+          setTimeout(() => { formPopup.style.display = 'none'; }, 500);
+        }, 4000);
+
         contactForm.reset();
-        setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
       })
       .catch(() => {
         alert("Oops! Something went wrong. Please try again.");
       });
   });
+}
+
 }
 
