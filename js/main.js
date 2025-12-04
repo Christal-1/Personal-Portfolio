@@ -1,6 +1,43 @@
 // ---------------- UPDATE FOOTER YEAR ----------------
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// ---------------- RADAR CHART ----------------
+const radarCanvas = document.getElementById('skillsRadar');
+if (radarCanvas) {
+    const ctx = radarCanvas.getContext('2d');
+
+    const radarChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['.NET', 'C#', 'TypeScript', 'PyTest', 'Agile', 'CI/CD', 'Java'],
+            datasets: [{
+                label: 'Skill Level',
+                data: [80, 75, 70, 65, 85, 80, 60],
+                backgroundColor: 'rgba(246,178,26,0.25)',
+                borderColor: '#21412c',
+                pointBackgroundColor: '#21412c',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: 1, // makes the radar square
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                r: {
+                    angleLines: { color: '#ddd' },
+                    grid: { color: '#ccc' },
+                    pointLabels: { color: '#21412c', font: { size: 14 } },
+                    ticks: { display: false }
+                }
+            }
+        }
+    });
+}
+
 // ---------------- CONTACT FORM (EmailJS v4) ----------------
 emailjs.init("rw9TwjCxJZIsPWS34"); // your public key
 
