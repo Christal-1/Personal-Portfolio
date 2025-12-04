@@ -226,15 +226,9 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="container contact" style="padding:80px 0;">
-    <div class="section-head">
-      <small>— Get in Touch</small>
-      <h2><span class="accent">Contact Me</span></h2>
-      <p class="muted">I’d love to hear from you! Whether it’s a project collaboration, question, or just a hello 👋</p>
-    </div>
-  
-    <div class="contact-wrapper">
-      <!-- Contact Cards -->
+    <section id="contact" class="container contact" style="padding:40px 0;">
+      <h2><span class="accent">Let's Connect</span></h2>
+    
       <div class="contact-cards">
         <div class="contact-card">
           <h3>Email</h3>
@@ -250,6 +244,16 @@
           <p><a href="https://github.com/Christal-1" target="_blank">github.com/Christal-1</a></p>
         </div>
       </div>
+    
+      <form id="contactForm" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn primary">Send Message</button>
+        <p id="formMessage" style="margin-top:12px; display:none; color:green; font-weight:600;">Message sent successfully!</p>
+      </form>
+    </section>
+
   
       <!-- Contact Form -->
       <form class="contact-form">
