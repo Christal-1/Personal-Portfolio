@@ -22,7 +22,7 @@ if (radarCanvas) {
         options: {
             responsive: true,
             maintainAspectRatio: true,
-            aspectRatio: 1, // makes the radar square
+            aspectRatio: 1, // keeps chart square
             plugins: {
                 legend: { display: false }
             },
@@ -36,6 +36,15 @@ if (radarCanvas) {
             }
         }
     });
+
+    // ---------------- SUBTLE ROTATION ----------------
+    let angle = 0;
+    function rotateRadar() {
+        angle += 0.05; // slower rotation
+        radarCanvas.style.transform = `rotate(${angle}deg)`;
+        requestAnimationFrame(rotateRadar);
+    }
+    rotateRadar();
 }
 
 // ---------------- CONTACT FORM (EmailJS v4) ----------------
