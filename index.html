@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -19,7 +20,6 @@
         <img src="assets/hero.jpg" alt="logo" class="logo">
         <span class="brand-name">Christal Haines</span>
       </div>
-
       <nav class="nav">
         <a href="#services">Services</a>
         <a href="#projects">Projects</a>
@@ -40,12 +40,10 @@
           .NET Developer & Test Automation Trainee
           <span class="muted">based in Johannesburg</span>
         </h1>
-
         <p class="lead">
           Software Development Graduate & current .NET & Test Automation Trainee at Nagarro.
           I build scalable applications, implement automation frameworks, and deliver high-quality software.
         </p>
-
         <div class="hero-cta">
           <a class="btn primary" href="#projects">View My Work</a>
           <a class="btn outline" href="#contact">Get In Touch With Me</a>
@@ -67,20 +65,17 @@
         <small>— Services</small>
         <h2><span class="accent">What I Do</span></h2>
       </div>
-
       <div class="cards">
         <article class="card">
           <div class="icon">Dev</div>
           <h3>Software Development</h3>
           <p>Building secure, scalable applications using .NET, Python, Java, C#.</p>
         </article>
-
         <article class="card">
           <div class="icon">QA</div>
           <h3>Automation Testing</h3>
           <p>Implementing automated test suites using Selenium, PyTest & CI/CD.</p>
         </article>
-
         <article class="card">
           <div class="icon">Web</div>
           <h3>Web Development</h3>
@@ -98,23 +93,19 @@
           <div class="bubble small">Automation</div>
         </div>
       </div>
-
       <div class="about-right">
         <small>— About Me</small>
         <h2>Who is <span class="accent">Christal Haines?</span></h2>
-
         <p class="muted">
           Motivated and detail-oriented Software Development graduate with experience in .NET development,
           automation testing, Python, Java, C#, Agile methodologies and CI/CD pipelines.
           Passionate about learning, mentoring and creating impactful software solutions.
         </p>
-
         <div class="stats">
           <div class="stat"><strong>3+</strong><span>Tech Stacks</span></div>
           <div class="stat"><strong>6+</strong><span>Projects Built</span></div>
           <div class="stat"><strong>2+</strong><span>Mentoring Roles</span></div>
         </div>
-
         <div class="download-row">
           <a class="btn primary" href="assets/Christal_Haines_CV.docx" download>Download CV</a>
           <span class="signature">Christal H.</span>
@@ -171,9 +162,9 @@
         </div>
       </div>
     
-      <form id="contactForm" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form id="contactForm" class="contact-form">
         <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
         <button type="submit" class="btn primary">Send Message</button>
         <p id="formMessage" class="success-message" style="display:none;">Message sent successfully!</p>
