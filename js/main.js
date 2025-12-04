@@ -46,31 +46,25 @@ if (radarCanvas) {
     rotate();
 }
 
-/* ---------------- CONTACT FORM ---------------- */
+/* ---------------- CONTACT FORM (EmailJS) ---------------- */
+// Initialize EmailJS
+emailjs.init("YOUR_EMAILJS_USER_ID");
+
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    const formData = new FormData(contactForm);
 
-    fetch(contactForm.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+      .then(() => {
         formMessage.style.display = 'block';
         contactForm.reset();
-        setTimeout(() => { formMessage.style.display = 'none'; }, 5000); // fade out after 5s
-      } else {
-        response.json().then(data => {
-          alert(data.error || "Oops! Something went wrong.");
-        });
-      }
-    }).catch(() => {
-      alert("Oops! Something went wrong.");
-    });
+        setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
+      })
+      .catch(() => {
+        alert("Oops! Something went wrong. Please try again.");
+      });
   });
 }
