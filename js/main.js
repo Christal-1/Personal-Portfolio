@@ -1,4 +1,4 @@
-// Update footer year
+// ---------------- UPDATE FOOTER YEAR ----------------
 document.getElementById('year').textContent = new Date().getFullYear();
 
 /* ---------------- RADAR CHART ---------------- */
@@ -46,9 +46,8 @@ if (radarCanvas) {
     rotate();
 }
 
-/* ---------------- CONTACT FORM (EmailJS) ---------------- */
-// Initialize EmailJS
-emailjs.init("rw9TwjCxJZIsPWS34");
+/* ---------------- CONTACT FORM (EmailJS v4) ---------------- */
+emailjs.init("rw9TwjCxJZIsPWS34"); // your public key
 
 const contactForm = document.getElementById('contactForm');
 const formPopup = document.getElementById('formPopup');
@@ -58,7 +57,9 @@ if (contactForm) {
     e.preventDefault();
 
     emailjs.sendForm('service_vxrxjiq', 'template_75cfmpa', this)
-      .then(() => {
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+
         // Show popup
         formPopup.style.display = 'block';
         formPopup.style.opacity = 1;
@@ -78,12 +79,9 @@ if (contactForm) {
         }, 4000);
 
         contactForm.reset();
-      })
-      .catch(() => {
+      }, (error) => {
+        console.error('FAILED...', error);
         alert("Oops! Something went wrong. Please try again.");
       });
   });
 }
-
-}
-
