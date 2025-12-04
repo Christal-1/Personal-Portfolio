@@ -22,10 +22,8 @@ if (radarCanvas) {
         options: {
             responsive: true,
             maintainAspectRatio: true,
-            aspectRatio: 1, // keeps chart square
-            plugins: {
-                legend: { display: false }
-            },
+            aspectRatio: 1,
+            plugins: { legend: { display: false } },
             scales: {
                 r: {
                     angleLines: { color: '#ddd' },
@@ -37,10 +35,10 @@ if (radarCanvas) {
         }
     });
 
-    // ---------------- SUBTLE ROTATION ----------------
+    // ---- Add rotation ----
     let angle = 0;
     function rotateRadar() {
-        angle += 0.05; // slower rotation
+        angle += 0.05; // control speed
         radarCanvas.style.transform = `rotate(${angle}deg)`;
         requestAnimationFrame(rotateRadar);
     }
@@ -48,7 +46,7 @@ if (radarCanvas) {
 }
 
 // ---------------- CONTACT FORM (EmailJS v4) ----------------
-emailjs.init("rw9TwjCxJZIsPWS34"); // your public key
+emailjs.init("rw9TwjCxJZIsPWS34");
 
 const contactForm = document.getElementById('contactForm');
 const formPopup = document.getElementById('formPopup');
