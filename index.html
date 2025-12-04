@@ -227,8 +227,6 @@
     </div>
     </section>
 
-
-    <!-- CONTACT -->
     <!-- CONTACT -->
 <section id="contact" class="container contact" style="padding:40px 0;">
   <h2><span class="accent">Let's Connect</span></h2>
@@ -255,9 +253,14 @@
     <input type="email" name="email" placeholder="Your Email" required>
     <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
     <button type="submit" class="btn primary">Send Message</button>
-    <p id="formMessage" style="margin-top:12px; display:none; color:green; font-weight:600;">Message sent successfully!</p>
   </form>
-</section>
+  
+  <!-- Popup container (initially hidden) -->
+  <div id="formPopup" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+    background: #4caf50; color: white; padding: 15px 25px; border-radius: 8px;
+    font-weight: 600; display: none; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    Message sent successfully!
+  </div>
 
 
   </main>
