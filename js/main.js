@@ -1,10 +1,12 @@
+// ---------------- UPDATE FOOTER YEAR ----------------
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* Radar Chart */
+/* ---------------- RADAR CHART ---------------- */
 const radarCanvas = document.getElementById('skillsRadar');
 if (radarCanvas) {
-    radarCanvas.width = 500;  // bigger width
-    radarCanvas.height = 500; // bigger height
+    // Set canvas size explicitly
+    radarCanvas.width = 500;
+    radarCanvas.height = 500;
 
     const ctx = radarCanvas.getContext('2d');
 
@@ -23,28 +25,30 @@ if (radarCanvas) {
         },
         options: {
             responsive: true,
-            plugins: { legend: { display: false } },
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
             scales: {
                 r: {
                     angleLines: { color: '#ddd' },
                     grid: { color: '#ccc' },
-                    pointLabels: { color: '#21412c' },
+                    pointLabels: { color: '#21412c', font: { size: 14 } },
                     ticks: { display: false }
                 }
             }
         }
     });
 
-    /* Rotate animation */
+    // Rotate animation (subtle rotation)
     let angle = 0;
     function rotate() {
-        angle += 0.1;
-        radarCanvas.style.transform = `rotate(${angle}deg)`;
+        angle += 0.05; // slower rotation
+        radarCanvas.style.transform = `rotate(${angle}deg)`; // <- template literal fixed
         requestAnimationFrame(rotate);
     }
     rotate();
 }
-
 
 /* ---------------- CONTACT FORM (EmailJS v4) ---------------- */
 emailjs.init("rw9TwjCxJZIsPWS34"); // your public key
