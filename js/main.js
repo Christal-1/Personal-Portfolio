@@ -84,4 +84,5 @@ if (contactForm) {
         alert("Oops! Something went wrong. Please try again.");
       });
   });
+    
 }
