@@ -4,10 +4,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
 /* ---------------- RADAR CHART ---------------- */
 const radarCanvas = document.getElementById('skillsRadar');
 if (radarCanvas) {
-    // Set canvas size explicitly
-    radarCanvas.width = 500;
-    radarCanvas.height = 500;
-
     const ctx = radarCanvas.getContext('2d');
 
     const radarChart = new Chart(ctx, {
@@ -36,18 +32,10 @@ if (radarCanvas) {
                     pointLabels: { color: '#21412c', font: { size: 14 } },
                     ticks: { display: false }
                 }
-            }
+            },
+            animation: { duration: 1500, easing: 'easeOutQuart' } // smooth animation
         }
     });
-
-    // Rotate animation (subtle rotation)
-    let angle = 0;
-    function rotate() {
-        angle += 0.05; // slower rotation
-        radarCanvas.style.transform = `rotate(${angle}deg)`; // <- template literal fixed
-        requestAnimationFrame(rotate);
-    }
-    rotate();
 }
 
 /* ---------------- CONTACT FORM (EmailJS v4) ---------------- */
