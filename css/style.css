@@ -13,7 +13,7 @@
 
 /* Reset & Base */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: #111; line-height: 1.6; }
+body { background: var(--bg); color: #111; line-height: 1.6; font-size: 16px; }
 .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
 
 /* HEADER */
@@ -28,7 +28,7 @@ body { background: var(--bg); color: #111; line-height: 1.6; }
 .nav a.cta { background: #fff; color: var(--dark); padding: 10px 14px; border-radius: 999px; }
 
 /* HERO */
-.hero { display: flex; gap: 40px; padding: 70px 0; align-items: center; }
+.hero { display: flex; gap: 40px; padding: 70px 0; align-items: center; flex-wrap: wrap; }
 .hero-left { flex: 1; max-width: 640px; }
 .eyebrow { color: var(--dark); font-weight: 600; margin-bottom: 10px; }
 h1 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.1; margin-bottom: 12px; }
@@ -72,17 +72,15 @@ h1 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.1; 
 .services { padding: 60px 0; }
 .section-head small { color: var(--muted); margin-bottom: 8px; display: block; }
 .section-head h2 { font-size: 30px; margin-bottom: 18px; }
-
 .cards { display: flex; gap: 20px; flex-wrap: wrap; }
-.card { background: var(--card); border-radius: 14px; padding: 20px; flex: 1; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+.card { background: var(--card); border-radius: 14px; padding: 20px; flex: 1 1 250px; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
 .card h3 { margin-top: 8px; }
 .card .icon { background: #fff; border-radius: 10px; padding: 8px 10px; font-weight: 700; display: inline-block; }
 
 /* ABOUT */
 .dark-bg { background: var(--dark); color: #fff; padding: 60px; border-radius: 12px; margin-top: 40px; }
-.about { display: flex; gap: 40px; align-items: center; }
+.about { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
 .about-left { flex: 0 0 320px; }
-
 .circle-photo {
   width: 260px;
   height: 260px;
@@ -105,43 +103,25 @@ h1 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.1; 
   font-weight: 600;
   font-size: 13px;
 }
-
 .about-right { flex: 1; }
-.stats { display: flex; gap: 24px; margin: 18px 0; }
+.stats { display: flex; gap: 24px; margin: 18px 0; flex-wrap: wrap; }
 .stat strong { display: block; font-size: 22px; }
-
-.download-row { display: flex; align-items: center; gap: 14px; margin-top: 12px; }
+.download-row { display: flex; align-items: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
 .signature { font-family: 'Playfair Display', serif; color: var(--accent); font-size: 18px; }
 
 /* PROJECTS */
-.projects {
-  padding: 80px 0;
-  background: #ffffff;
-  text-align: center;
-}
+.projects { padding: 80px 0; background: #ffffff; text-align: center; }
 .projects h2 { font-size: 28px; margin-bottom: 8px; }
-.projects .card { margin-top: 20px; position: relative; z-index: 2; }
+.projects .cards { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.projects .card { margin-top: 20px; flex: 1 1 250px; }
 
 /* RADAR CHART */
-.radar-section {
-  padding: 60px 0;
-  text-align: center;
-}
-.radar {
-  max-width: 500px;
-  margin: 0 auto;
-  transition: transform 0.2s linear;
-}
+.radar-section { padding: 60px 0; text-align: center; }
+.radar { width: 100%; max-width: 500px; margin: 0 auto; transition: transform 0.2s linear; }
 
 /* EXPERIENCE TIMELINE */
-.experience-section {
-  padding: 80px 0;
-  background: #f9f9f9;
-}
-.timeline {
-  position: relative;
-  margin-top: 40px;
-}
+.experience-section { padding: 80px 0; background: #f9f9f9; }
+.timeline { position: relative; margin-top: 40px; }
 .timeline::before {
   content: '';
   position: absolute;
@@ -184,13 +164,19 @@ h1 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.1; 
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .hero { flex-direction: column; gap: 24px; }
-  .hero-right { order: -1; }
+  .hero-right { order: -1; width: 100%; }
   .cards { flex-direction: column; gap: 24px; }
-  .about { flex-direction: column; }
+  .about { flex-direction: column; gap: 24px; }
   .projects .cards { flex-direction: column; gap: 24px; }
   .timeline-item,
   .timeline-item.left,
-  .timeline-item.right { width: 100%; float: none; }
+  .timeline-item.right { width: 100%; float: none; margin-bottom: 20px; }
   .timeline::before { left: 20px; transform: none; }
   .timeline-item::before { left: -9px !important; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 22px; }
+  h3 { font-size: 18px; }
+  .lead { font-size: 14px; }
+  .hero-cta .btn { width: 100%; margin-bottom: 10px; }
+  .hero-photo-wrap, .hero-photo, .circle-photo, .circle-photo img { width: 100%; height: auto; max-width: 320px; }
 }
