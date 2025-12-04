@@ -48,7 +48,7 @@ if (radarCanvas) {
 
 /* ---------------- CONTACT FORM (EmailJS) ---------------- */
 // Initialize EmailJS
-emailjs.init("YOUR_EMAILJS_USER_ID");
+emailjs.init("rw9TwjCxJZIsPWS34");
 
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
@@ -57,7 +57,7 @@ if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+    emailjs.sendForm('service_vxrxjiq', 'template_75cfmpa', this)
       .then(() => {
         formMessage.style.display = 'block';
         contactForm.reset();
