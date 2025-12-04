@@ -24,7 +24,9 @@ if (radarCanvas) {
         },
         options: {
             responsive: true,
-            plugins: { legend: { display: false } },
+            plugins: {
+                legend: { display: false }
+            },
             scales: {
                 r: {
                     angleLines: { color: '#ddd' },
@@ -40,7 +42,7 @@ if (radarCanvas) {
     let angle = 0;
     function rotate() {
         angle += 0.1;
-        radarCanvas.style.transform = `rotate(${angle}deg)`;
+        radarCanvas.style.transform = `rotate(${angle}deg)`; // <- fixed template literal
         requestAnimationFrame(rotate);
     }
     rotate();
@@ -53,36 +55,37 @@ const contactForm = document.getElementById('contactForm');
 const formPopup = document.getElementById('formPopup');
 
 if (contactForm) {
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    emailjs.sendForm('service_vxrxjiq', 'template_75cfmpa', this)
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
+        emailjs.sendForm('service_vxrxjiq', 'template_75cfmpa', this)
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
 
-        // Show popup
-        formPopup.style.display = 'block';
-        formPopup.style.opacity = 1;
+                // Show popup
+                formPopup.style.display = 'block';
+                formPopup.style.opacity = 1;
 
-        // Confetti
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 }
-        });
+                // Confetti
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
 
-        // Hide popup after 4s
-        setTimeout(() => {
-          formPopup.style.transition = "opacity 0.5s";
-          formPopup.style.opacity = 0;
-          setTimeout(() => { formPopup.style.display = 'none'; }, 500);
-        }, 4000);
+                // Hide popup after 4s
+                setTimeout(() => {
+                    formPopup.style.transition = "opacity 0.5s";
+                    formPopup.style.opacity = 0;
+                    setTimeout(() => {
+                        formPopup.style.display = 'none';
+                    }, 500);
+                }, 4000);
 
-        contactForm.reset();
-      }, (error) => {
-        console.error('FAILED...', error);
-        alert("Oops! Something went wrong. Please try again.");
-      });
-  });
-    
+                contactForm.reset();
+            }, (error) => {
+                console.error('FAILED...', error);
+                alert("Oops! Something went wrong. Please try again.");
+            });
+    });
 }
