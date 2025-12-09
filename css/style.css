@@ -259,3 +259,47 @@ h1 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.1; 
   .hero-photo-wrap, .hero-photo, .circle-photo, .circle-photo img { width: 100%; height: auto; max-width: 320px; }
   .contact-wrapper { flex-direction: column; gap: 30px; }
 }
+
+/* ---------- MOBILE NAVIGATION ---------- */
+.mobile-nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.mobile-nav-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* Hide desktop nav on small screens */
+@media (max-width: 768px) {
+  .nav { display: none; flex-direction: column; background: var(--dark); position: absolute; top: 68px; left: 0; width: 100%; padding: 20px 0; }
+  .nav a { margin: 12px 0; font-size: 16px; text-align: center; display: block; }
+  .mobile-nav-toggle { display: flex; }
+}
+
+/* Adjust hero & about spacing on mobile */
+@media (max-width: 768px) {
+  .hero-left, .hero-right, .about-left, .about-right {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .hero-left { text-align: center; }
+  .hero-cta .btn { width: 100%; margin-bottom: 12px; }
+  .hero-photo-wrap, .hero-photo, .circle-photo, .circle-photo img {
+    max-width: 260px;
+    height: auto;
+  }
+}
+
+/* Padding improvements for mobile */
+@media (max-width: 480px) {
+  body { font-size: 14px; }
+  .container { padding: 0 15px; }
+  .services, .projects, .experience-section, .contact { padding: 40px 0; }
+  .timeline-item { padding: 16px; border-radius: 12px; }
+}
+
