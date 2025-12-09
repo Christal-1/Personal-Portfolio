@@ -278,24 +278,23 @@ h1 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.1; 
 }
 
 /* Animate hamburger when active */
-.mobile-nav-toggle.active span:nth-child(1) {
+.mobile-nav-toggle.open span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
-.mobile-nav-toggle.active span:nth-child(2) {
+.mobile-nav-toggle.open span:nth-child(2) {
   opacity: 0;
 }
-.mobile-nav-toggle.active span:nth-child(3) {
+.mobile-nav-toggle.open span:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
 
-  /* Hide desktop nav */
   .nav {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 68px;
+    top: 70px;
     right: 0;
     width: 100%;
     background: var(--dark);
@@ -304,11 +303,11 @@ h1 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.1; 
     gap: 20px;
     opacity: 0;
     transform: translateY(-10px);
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
   }
 
-  /* Show nav on toggle */
-  .nav.open {
+  /* 👇 THIS MATCHES YOUR JS */
+  .nav.nav-open {
     display: flex;
     opacity: 1;
     transform: translateY(0);
