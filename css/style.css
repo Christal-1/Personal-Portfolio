@@ -264,42 +264,57 @@ h1 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.1; 
 .mobile-nav-toggle {
   display: none;
   flex-direction: column;
+  gap: 4px;
   cursor: pointer;
-  gap: 5px;
+  z-index: 999;
 }
+
 .mobile-nav-toggle span {
-  width: 25px;
+  width: 26px;
   height: 3px;
   background: #fff;
   border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
-/* Hide desktop nav on small screens */
+/* Animate hamburger when active */
+.mobile-nav-toggle.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.mobile-nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-nav-toggle.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 @media (max-width: 768px) {
-  .nav { display: none; flex-direction: column; background: var(--dark); position: absolute; top: 68px; left: 0; width: 100%; padding: 20px 0; }
-  .nav a { margin: 12px 0; font-size: 16px; text-align: center; display: block; }
-  .mobile-nav-toggle { display: flex; }
-}
 
-/* Adjust hero & about spacing on mobile */
-@media (max-width: 768px) {
-  .hero-left, .hero-right, .about-left, .about-right {
-    flex: 1 1 100%;
-    max-width: 100%;
+  /* Hide desktop nav */
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 68px;
+    right: 0;
+    width: 100%;
+    background: var(--dark);
+    padding: 20px 0;
+    text-align: center;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
   }
-  .hero-left { text-align: center; }
-  .hero-cta .btn { width: 100%; margin-bottom: 12px; }
-  .hero-photo-wrap, .hero-photo, .circle-photo, .circle-photo img {
-    max-width: 260px;
-    height: auto;
+
+  /* Show nav on toggle */
+  .nav.open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
   }
 }
-
-/* Padding improvements for mobile */
-@media (max-width: 480px) {
-  body { font-size: 14px; }
-  .container { padding: 0 15px; }
-  .services, .projects, .experience-section, .contact { padding: 40px 0; }
-  .timeline-item { padding: 16px; border-radius: 12px; }
-}
-
