@@ -260,36 +260,39 @@ h1 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.1; 
   .contact-wrapper { flex-direction: column; gap: 30px; }
 }
 
-/* ---------- MOBILE NAVIGATION ---------- */
+/* ---------- MOBILE NAVIGATION FIX ---------- */
+
 .mobile-nav-toggle {
   display: none;
   flex-direction: column;
   gap: 4px;
   cursor: pointer;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .mobile-nav-toggle span {
   width: 26px;
   height: 3px;
-  background: #fff;
+  background: #ffffff;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
-/* Animate hamburger when active */
+/* Animate hamburger */
 .mobile-nav-toggle.open span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 .mobile-nav-toggle.open span:nth-child(2) {
   opacity: 0;
 }
 .mobile-nav-toggle.open span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
+/* MOBILE NAV BEHAVIOR */
 @media (max-width: 768px) {
 
+  /* Hide nav by default */
   .nav {
     display: none;
     flex-direction: column;
@@ -297,23 +300,29 @@ h1 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.1; 
     top: 70px;
     right: 0;
     width: 100%;
-    background: var(--dark);
+    background: var(--dark, #1b1b1b);
     padding: 20px 0;
     text-align: center;
     gap: 20px;
     opacity: 0;
     transform: translateY(-10px);
-    transition: 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
-  /* 👇 THIS MATCHES YOUR JS */
+  /* SHOW when JS adds .nav-open */
   .nav.nav-open {
     display: flex;
     opacity: 1;
     transform: translateY(0);
   }
 
+  /* Show hamburger */
   .mobile-nav-toggle {
     display: flex;
+  }
+
+  /* Hide desktop layout elements if needed */
+  .header-inner {
+    justify-content: space-between;
   }
 }
