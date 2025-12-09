@@ -49,6 +49,18 @@ if (radarCanvas) {
     rotate();
 }
 
+// ---------- MOBILE NAV TOGGLE ----------
+const mobileNavToggle = document.getElementById('mobileNavToggle');
+const nav = document.querySelector('.nav');
+
+if (mobileNavToggle && nav) {
+    mobileNavToggle.addEventListener('click', () => {
+        nav.classList.toggle('nav-open');
+        mobileNavToggle.classList.toggle('open');
+    });
+}
+
+
 
 // ---------------- CONTACT FORM (EmailJS v4) ----------------
 emailjs.init("rw9TwjCxJZIsPWS34");
