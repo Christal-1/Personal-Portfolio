@@ -4,19 +4,33 @@ document.getElementById('year').textContent = new Date().getFullYear();
 /* Radar Chart */
 const radarCanvas = document.getElementById('skillsRadar');
 if (radarCanvas) {
-    // Optional: remove fixed width/height for responsiveness
-    // radarCanvas.width = 500;
-    // radarCanvas.height = 500;
-
     const ctx = radarCanvas.getContext('2d');
 
     const radarChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['.NET', 'C#', 'TypeScript', 'PyTest', 'Agile', 'CI/CD', 'Java'],
+            labels: [
+                '.NET',
+                'C#',
+                'Python',
+                'SQL',
+                'Playwright',
+                'Selenium',
+                'Azure',
+                'Data Engineering'
+            ],
             datasets: [{
                 label: 'Skill Level',
-                data: [80, 75, 70, 65, 85, 80, 60],
+                data: [
+                    85, // .NET
+                    80, // C#
+                    80, // Python
+                    75, // SQL
+                    75, // Playwright
+                    85, // Selenium
+                    70, // Azure Fundamentals
+                    75  // Data Engineering
+                ],
                 backgroundColor: 'rgba(246,178,26,0.25)',
                 borderColor: '#21412c',
                 pointBackgroundColor: '#21412c',
@@ -27,13 +41,31 @@ if (radarCanvas) {
             responsive: true,
             maintainAspectRatio: true,
             aspectRatio: 1,
-            plugins: { legend: { display: false } },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
             scales: {
                 r: {
-                    angleLines: { color: '#ddd' },
-                    grid: { color: '#ccc' },
-                    pointLabels: { color: '#21412c', font: { size: 14 } },
-                    ticks: { display: false }
+                    suggestedMin: 0,
+                    suggestedMax: 100,
+                    angleLines: {
+                        color: '#ddd'
+                    },
+                    grid: {
+                        color: '#ccc'
+                    },
+                    pointLabels: {
+                        color: '#21412c',
+                        font: {
+                            size: 14,
+                            weight: '600'
+                        }
+                    },
+                    ticks: {
+                        display: false
+                    }
                 }
             }
         }
@@ -41,11 +73,13 @@ if (radarCanvas) {
 
     /* Rotate animation */
     let angle = 0;
+
     function rotate() {
-        angle += 0.05; // slower rotation
+        angle += 0.05;
         radarCanvas.style.transform = `rotate(${angle}deg)`;
         requestAnimationFrame(rotate);
     }
+
     rotate();
 }
 
